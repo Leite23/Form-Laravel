@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return to_route('login');
+    return to_route('auth.index');
 });
 
-Route::get('/login', [AuthController::class, 'index'])->name('login');
-Route::get('/create', [AuthController::class, 'create'])->name('create');
+Route::get('/login', [AuthController::class, 'index'])->name('auth.index');
+Route::get('/register', [AuthController::class, 'create'])->name('auth.create');
+Route::post('/registerUser', [AuthController::class, 'store'])->name('auth.store');
+Route::post('/consultUser', [AuthController::class, 'consult'])->name('auth.consult');
+
+
